@@ -9,6 +9,12 @@ set cursorline      " highlight current line
 set wildmenu
 set incsearch       " search as characters are entered
 set hlsearch        " highlight matches
+let mapleader = ","
+
+" Edit my vimrc file
+:nnoremap <leader>ev :vsplit $MYVIMRC<CR> 
+" Source my vimrc file
+:nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -85,3 +91,9 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" fuzzy finder
+nnoremap <C-p> :Files<CR>
