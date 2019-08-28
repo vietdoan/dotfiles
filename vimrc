@@ -4,20 +4,25 @@ syntax enable
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set expandtab       " tabs are spaces
-set number
+set number          " show line number
 set cursorline      " highlight current line
-set wildmenu
+set wildmenu        " visual autocomplete for command menu
 set incsearch       " search as characters are entered
 set hlsearch        " highlight matches
 let mapleader = ","
+
+:nnoremap <leader><space> :nohlsearch<CR>
 
 " Edit my vimrc file
 :nnoremap <leader>ev :vsplit $MYVIMRC<CR> 
 " Source my vimrc file
 :nnoremap <leader>sv :source $MYVIMRC<CR>
+" Edit vim plugins
+:nnoremap <leader>ep :vsplit ~/.vim/plugins.vim<CR>
 
+:inoremap jk <esc>
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-b> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
@@ -97,3 +102,26 @@ nmap <F8> :TagbarToggle<CR>
 
 " fuzzy finder
 nnoremap <C-p> :Files<CR>
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_go_checkers = ['golint', 'govet']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+nnoremap <leader>sc :SyntasticCheck<CR>
+
+" ack
+nnoremap <leader>a :Ack!<Space>
+
+" git-gutter
+set updatetime=100
+highlight GitGutterAdd    guifg=#009900 guibg=#073642 ctermfg=2 ctermbg=0
+highlight GitGutterChange guifg=#bbbb00 guibg=#073642 ctermfg=3 ctermbg=0
+highlight GitGutterDelete guifg=#ff2222 guibg=#073642 ctermfg=1 ctermbg=0
+
