@@ -1,5 +1,5 @@
 so ~/.vim/plugins.vim
-colorscheme codedark
+colorscheme afterglow 
 syntax enable
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
@@ -117,6 +117,7 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 nnoremap <leader>sc :SyntasticCheck<CR>
 
 " ack
+let g:ackprg = 'ag --vimgrep' " use ag instead of ack-grep
 nnoremap <leader>a :Ack!<Space>
 
 " git-gutter

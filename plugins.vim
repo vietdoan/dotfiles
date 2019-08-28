@@ -1,6 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'tomasiser/vim-code-dark'
+" Vim color Schemes
+" Plug 'tomasiser/vim-code-dark'
+" Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'danilo-augusto/vim-afterglow'
 
 " Go lang
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
@@ -36,6 +39,10 @@ Plug 'mileszs/ack.vim'
 
 " Mutiple selection
 Plug 'terryma/vim-multiple-cursors'
+
+" Statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
