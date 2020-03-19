@@ -1,8 +1,8 @@
 so ~/.vim/plugins.vim
-colorscheme afterglow 
 syntax enable
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
+set shiftwidth=4
 set expandtab       " tabs are spaces
 set number          " show line number
 set cursorline      " highlight current line
@@ -13,14 +13,24 @@ let mapleader = ","
 
 :nnoremap <leader><space> :nohlsearch<CR>
 
+" Copy to clipboard
+:nnoremap <leader>y "*y 
+:nnoremap <leader>Y "+y
+:nnoremap <leader>p "*p
+:nnoremap <leader>P "+p
+
 " Edit my vimrc file
 :nnoremap <leader>ev :vsplit $MYVIMRC<CR> 
 " Source my vimrc file
 :nnoremap <leader>sv :source $MYVIMRC<CR>
 " Edit vim plugins
 :nnoremap <leader>ep :vsplit ~/.vim/plugins.vim<CR>
+" Call PlugInstall
+:nnoremap <leader>sp :source ~/.vim/plugins.vim<CR>:PlugInstall<CR>
 
 :inoremap jk <esc>
+
+:onoremap p i(
 " NERDTree
 map <C-b> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
@@ -100,9 +110,6 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" fuzzy finder
-nnoremap <C-p> :Files<CR>
-
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -112,7 +119,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['golint', 'govet']
+let g:syntastic_go_checkers = ['govet', 'golint']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 nnoremap <leader>sc :SyntasticCheck<CR>
 
@@ -126,3 +133,22 @@ highlight GitGutterAdd    guifg=#009900 guibg=#073642 ctermfg=2 ctermbg=0
 highlight GitGutterChange guifg=#bbbb00 guibg=#073642 ctermfg=3 ctermbg=0
 highlight GitGutterDelete guifg=#ff2222 guibg=#073642 ctermfg=1 ctermbg=0
 
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+
+" vim-go
+nnoremap <leader>gr :GoReferrers<CR>
+nnoremap <leader>gb :GoBuild<CR>
+nnoremap <leader>gl :GoDecls<CR>
+nnoremap <leader>gf :GoDeclsDir<CR>
+
+let g:go_metalinter_enabled = ['vet', 'errcheck', 'golint']
+let g:go_metalinter_autosave = 1 " Call gometalinter whenever you save a file 
+
+let g:go_fmt_command = "goimports" " Format and rewrite your import declaration whenever you save your file
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+" molokai theme
+let g:rehash256 = 1
+let g:molokai_original = 1
+colorscheme molokai

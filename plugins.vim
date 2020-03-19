@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
 " Vim color Schemes
 " Plug 'tomasiser/vim-code-dark'
 " Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'danilo-augusto/vim-afterglow'
+Plug 'fatih/molokai'
 
 " Go lang
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
@@ -43,6 +43,18 @@ Plug 'terryma/vim-multiple-cursors'
 " Statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Commenter
+Plug 'scrooloose/nerdcommenter'
+
+" Adds icons
+Plug 'ryanoasis/vim-devicons'
+
+" comment stuff out
+Plug 'tpope/vim-commentary'
+
+" move between functions
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
