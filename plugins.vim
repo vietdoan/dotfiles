@@ -8,9 +8,6 @@ Plug 'fatih/molokai'
 " Go lang
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
-" Keyword completion
-Plug 'shougo/neocomplete.vim'
-
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -22,8 +19,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Fuzzy Finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-Plug 'majutsushi/tagbar'
 
 " Code navigation
 Plug 'easymotion/vim-easymotion'
@@ -53,8 +48,11 @@ Plug 'ryanoasis/vim-devicons'
 " comment stuff out
 Plug 'tpope/vim-commentary'
 
-" move between functions
-Plug 'ctrlpvim/ctrlp.vim'
+" coc-nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" View and search LSP symbols, tags in Vim
+Plug 'liuchengxu/vista.vim'
 
 call plug#end()
 
