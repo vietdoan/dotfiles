@@ -178,3 +178,14 @@ set statusline+=%{NearestMethodOrFunction()}
 " Show the nearest function in your statusline automatically
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 nmap <F8> :Vista<CR>
+
+" copilot
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
+" vim-rust
+nnoremap <leader>rr :RustRun<CR>
+let g:rustfmt_autosave = 1
+let g:rust_cargo_use_clippy = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
