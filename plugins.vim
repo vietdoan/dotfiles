@@ -54,5 +54,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " View and search LSP symbols, tags in Vim
 Plug 'liuchengxu/vista.vim'
 
+Plug 'github/copilot.vim'
+
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 

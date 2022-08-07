@@ -1,5 +1,6 @@
 so ~/.vim/plugins.vim
 syntax enable
+filetype plugin indent on
 set encoding=utf8
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
@@ -19,15 +20,16 @@ set nowritebackup
 set cmdheight=2 " Give more space for displaying messages.
 set updatetime=300
 set shortmess+=c " Don't pass messages to |ins-completion-menu|.
+set tagfunc=CocTagFunc
 let mapleader = ","
 
 :nnoremap <leader><space> :nohlsearch<CR>
 
 " Copy to clipboard
-:nnoremap <leader>y "*y 
-:nnoremap <leader>Y "+y
-:nnoremap <leader>p "*p
-:nnoremap <leader>P "+p
+:vnoremap <leader>y "*y 
+:vnoremap <leader>Y "+y
+:vnoremap <leader>p "*p
+:vnoremap <leader>P "+p
 
 " Edit my vimrc file
 :nnoremap <leader>ev :vsplit $MYVIMRC<CR> 
@@ -76,7 +78,6 @@ highlight GitGutterDelete guifg=#ff2222 guibg=#073642 ctermfg=1 ctermbg=0
 let g:airline#extensions#tabline#enabled = 1
 
 " vim-go
-nnoremap <leader>gr :GoReferrers<CR>
 nnoremap <leader>gb :GoBuild<CR>
 nnoremap <leader>gl :GoDecls<CR>
 nnoremap <leader>gf :GoDeclsDir<CR>
