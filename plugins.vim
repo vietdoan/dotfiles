@@ -58,5 +58,7 @@ Plug 'github/copilot.vim'
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 call plug#end()
 
